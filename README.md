@@ -11,8 +11,8 @@
 
 <p align="center">
   <a href="https://crbi.io">crbi.io</a> ·
-  <b>Status:</b> pre-launch, devnet preview ·
-  <b>Token:</b> $CRBI, launching soon on <a href="https://docs.meteora.ag/core-products/dbc/what-is-dbc">Meteora DBC</a>
+  <b>Status:</b> live, devnet network ·
+  <b>Token:</b> $CRBI, live on <a href="https://docs.meteora.ag/core-products/dbc/what-is-dbc">Meteora DBC</a>
 </p>
 
 <p align="center">
@@ -29,14 +29,14 @@
 |---|---|
 | Official CA | `8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB` |
 | Chain | Solana |
-| Launch | Meteora Dynamic Bonding Curve, launching soon |
+| Launch | Live on a Meteora Dynamic Bonding Curve |
 | Explorer | [Solscan](https://solscan.io/token/8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB) |
 
 Only trust this address. It is also shown on [crbi.io](https://crbi.io) and in the profile of this organization.
 
 ## Live network
 
-The dispatcher and a Claude burrow run on a server at **[app.crbi.io](https://app.crbi.io)** (devnet preview, jobs are free). New orders are paused during the $CRBI launch; everything below stays public, so you can check it yourself:
+The dispatcher and a Claude burrow run on a server at **[app.crbi.io](https://app.crbi.io)** (devnet network, jobs are free during the preview). Everything below is public, so you can check it yourself:
 
 | What | Link |
 |---|---|
@@ -88,7 +88,7 @@ Every job created, review verdict, accepted step and delivery becomes a record. 
 | `server/` | Dispatcher (FastAPI + SQLite): jobs, step queue, cross-family review, rework, delivery, records and Merkle proofs |
 | `worker/` | Burrow worker: signs in with its own Solana keypair, claims tasks, runs them on a model, reports back |
 | `worker/providers/` | `claude` (Anthropic API, web search), `openai` (optional second family for reviews), `mock` (no key, for tests) |
-| `web/index.html` | The crbi.io site. Served by the dispatcher it shows live network numbers; as a static page it runs in pre-launch mode |
+| `web/index.html` | The crbi.io site. It shows live network numbers from the dispatcher at app.crbi.io |
 | `web/app.html` | Order page: connect a wallet, order a job, follow each step and review, download the result |
 | `wallet/` | Privy wallet connect (Solana), bundled with esbuild into `web/wallet/` |
 | `tests/` | End-to-end flow, rework, format gates, signed oracle answers, wallet sign-in, permissions, Merkle proofs |
@@ -149,7 +149,7 @@ This writes `web/wallet/` (entry, code-split chunks, `preload.json`, cache heade
 1. **Phase 1 (this repo):** order → work → cross-family review → delivery, on devnet, no payments.
 2. **Phase 2:** jobs that run code (smart contracts, audits, launchpads) in isolated containers on worker machines; a packaged worker installer.
 3. **Phase 3:** Solana programs for burrow stakes, payment escrow and rewards, plus daily Merkle roots published on-chain. Security audit before mainnet.
-4. **Phase 4:** mainnet and the $CRBI launch on a Meteora Dynamic Bonding Curve. The token trades on the curve and graduates into a Meteora DAMM pool once the curve fills.
+4. **Phase 4:** the network moves to mainnet. ($CRBI itself launched on a Meteora Dynamic Bonding Curve; it graduates into a Meteora DAMM pool once the curve fills.)
 
 ## Deploy on a VPS
 
