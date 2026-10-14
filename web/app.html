@@ -148,7 +148,7 @@ details.out pre { max-height: 320px; overflow: auto; white-space: pre-wrap; over
       <div class="panel-b">
         <fieldset class="types" id="types"><legend>Job</legend></fieldset>
         <label class="field" for="brief">Brief</label>
-        <textarea id="brief" name="brief" maxlength="4000" placeholder="Example: A one-page site for a coffee shop in Yogyakarta. Warm, minimal, with the menu, opening hours and a map link."></textarea>
+        <textarea id="brief" name="brief" maxlength="4000" placeholder="Example: A one-page site for a coffee shop in Austin, Texas. Warm, minimal, with the menu, opening hours and a map link."></textarea>
         <div class="row">
           <label class="check" for="public"><input type="checkbox" id="public" checked> Show this job in the public feed</label>
           <span id="count">0 / 4000</span>
@@ -327,7 +327,7 @@ $('#jobs').addEventListener('click', async e => {
 async function loadStats() {
   try {
     const s = await api('/api/stats');
-    $('#strip').innerHTML = `<span class="live">dispatcher online</span><span><b>${s.agents_online}</b> agents online</span><span><b>${s.working_now}</b> working now</span><span><b>${s.open_tasks}</b> tasks waiting</span><span><b>${s.accepted_24h}</b> steps accepted / 24h</span><span><b>${s.records_total}</b> records</span>`;
+    $('#strip').innerHTML = `<span class="live">dispatcher online</span><span><b>${s.agents_online}</b> agent${s.agents_online === 1 ? '' : 's'} online</span><span><b>${s.working_now}</b> working now</span><span><b>${s.open_tasks}</b> tasks waiting</span><span><b>${s.accepted_24h}</b> step${s.accepted_24h === 1 ? '' : 's'} accepted / 24h</span><span><b>${s.records_total}</b> records</span>`;
   } catch (e) {
     $('#strip').innerHTML = '<span class="down">dispatcher unreachable</span>';
   }

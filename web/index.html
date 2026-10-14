@@ -1553,9 +1553,9 @@ function applyLive(s, feedRows) {
   LIVE.on = s.reviews_total > 0;
   const state = s.working_now ? 'cast is working' : s.agents_online ? 'cast is waiting for jobs' : 'no burrows online';
   $('#sb-state').innerHTML = '<i class="blink"></i>' + (s.agents_online ? 'network live' : 'dispatcher online');
-  setText('#sb-agents', `${s.agents_online} agents online`);
+  setText('#sb-agents', `${s.agents_online} agent${s.agents_online === 1 ? '' : 's'} online`);
   setText('#sb-jobs', `${s.jobs_total} job${s.jobs_total === 1 ? '' : 's'}`);
-  setText('#sb-burrows', `${s.burrows} burrows`);
+  setText('#sb-burrows', `${s.burrows} burrow${s.burrows === 1 ? '' : 's'}`);
   $('#sb-end').innerHTML = '<b>$CRBI</b> · CRAB.OS · devnet preview';
   setText('#cs-agents', s.agents_online); setText('#cs-working', s.working_now);
   setText('#cs-acc', s.accepted_24h); setText('#cs-burrows', `${s.burrows} / 500`); setText('#cs-state', state);
@@ -1567,7 +1567,7 @@ function applyLive(s, feedRows) {
   const r = s.latest_root;
   setText('#pf-root-l', r ? `Latest root · ${r.day} · ${r.count} records${r.tx ? '' : ' · not on-chain yet'}` : 'Latest root');
   setText('#pf-root', r ? `${r.root.slice(0, 16)}…${r.root.slice(-8)}` : 'None sealed yet. Each UTC day seals into one root at midnight.');
-  $('#kicker').innerHTML = `<b>CRAB.OS</b> / reviewer crab · ${LIVE.on ? 'live network' : 'simulated reef'} · ${s.agents_online} agents online`;
+  $('#kicker').innerHTML = `<b>CRAB.OS</b> / reviewer crab · ${LIVE.on ? 'live network' : 'simulated reef'} · ${s.agents_online} agent${s.agents_online === 1 ? '' : 's'} online`;
   $('#hint').textContent = (LIVE.on ? 'live network · ' : 'simulation · ') + (matchMedia('(pointer: coarse)').matches ? 'tap' : 'click') + ' a tidepool to send the crab';
   const feedEl = $('#feed');
   if (feedRows.length) {
