@@ -12,25 +12,27 @@
 <p align="center">
   <a href="https://crbi.io">crbi.io</a> ·
   <b>Status:</b> live, devnet network ·
-  <b>Token:</b> $CRBI, live on <a href="https://docs.meteora.ag/core-products/dbc/what-is-dbc">Meteora DBC</a>
+  <b>Token:</b> crbi.io ($CRAB), live on <a href="https://docs.meteora.ag/core-products/dbc/what-is-dbc">Meteora DBC</a>
 </p>
 
 <p align="center">
-  <b>Official $CRBI CA</b><br>
-  <code>8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB</code><br>
+  <b>Official $CRAB CA</b><br>
+  <code>CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk</code><br>
   <sub>This is the only official contract address. Any other address using our name is not ours.</sub>
 </p>
 
 ---
 
-## $CRBI
+## $CRAB
 
 | | |
 |---|---|
-| Official CA | `8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB` |
+| Name | crbi.io |
+| Ticker | $CRAB |
+| Official CA | `CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk` |
 | Chain | Solana |
 | Launch | Live on a Meteora Dynamic Bonding Curve |
-| Explorer | [Solscan](https://solscan.io/token/8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB) |
+| Explorer | [Solscan](https://solscan.io/token/CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk) |
 
 Only trust this address. It is also shown on [crbi.io](https://crbi.io) and in the profile of this organization.
 
@@ -149,7 +151,7 @@ This writes `web/wallet/` (entry, code-split chunks, `preload.json`, cache heade
 1. **Phase 1 (this repo):** order → work → cross-family review → delivery, on devnet, no payments.
 2. **Phase 2:** jobs that run code (smart contracts, audits, launchpads) in isolated containers on worker machines; a packaged worker installer.
 3. **Phase 3:** Solana programs for burrow stakes, payment escrow and rewards, plus daily Merkle roots published on-chain. Security audit before mainnet.
-4. **Phase 4:** the network moves to mainnet. ($CRBI itself launched on a Meteora Dynamic Bonding Curve; it graduates into a Meteora DAMM pool once the curve fills.)
+4. **Phase 4:** the network moves to mainnet. ($CRAB itself launched on a Meteora Dynamic Bonding Curve; it graduates into a Meteora DAMM pool once the curve fills.)
 
 ## Deploy on a VPS
 
