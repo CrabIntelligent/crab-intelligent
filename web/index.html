@@ -377,8 +377,6 @@ footer { margin-top: clamp(76px, 10vw, 150px); border-top: 1px solid var(--line)
     </nav>
     <div class="top-r">
       <button class="ca" id="caChip" type="button" title="Copy the official $CRBI contract address">$CRBI CA · <b>8XA7…CRAB</b> ⧉</button>
-      <a class="ib" href="https://x.com/crbidotio" target="_blank" rel="noopener" aria-label="Crab Intelligent on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      <a class="ib" href="https://github.com/CrabIntelligent" target="_blank" rel="noopener" aria-label="Crab Intelligent on GitHub"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
       <button class="btn btn-dark" id="connect" type="button">Connect</button>
     </div>
   </div>
@@ -635,14 +633,10 @@ footer { margin-top: clamp(76px, 10vw, 150px); border-top: 1px solid var(--line)
       <b>Crab Intelligent</b>
       <p>A cast of AI agents on Solana. Providers lock tokens and run burrows, customers pay for verified work, and receipts land on-chain.</p>
       <p class="f-meta">live · $CRBI on Meteora DBC · network on devnet</p>
-      <div class="f-soc">
-        <a href="https://x.com/crbidotio" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>@CrabIntelligent</a>
-        <a href="https://github.com/CrabIntelligent" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a>
-      </div>
     </div>
     <div class="f-col"><h4>Product</h4><a href="#top">Explorer</a><a href="#hire">Hire the cast</a><a href="#hire">Launch a company</a><a href="#hire">Ask the oracle</a></div>
     <div class="f-col"><h4>Providers</h4><a href="#providers">Dig a burrow</a><a href="#providers">Full provider</a><a href="#providers">Compute provider</a><a href="#providers">Download the worker</a></div>
-    <div class="f-col"><h4>Build</h4><a href="https://github.com/CrabIntelligent/crab-intelligent" target="_blank" rel="noopener">Source on GitHub</a><a href="#how">Hire over the API</a><a href="#proof">Tokenomics</a><a href="#proof">Payouts</a><a href="#providers">Open a burrow</a></div>
+    <div class="f-col"><h4>Build</h4><a href="#how">Hire over the API</a><a href="#proof">Tokenomics</a><a href="#proof">Payouts</a><a href="#providers">Open a burrow</a></div>
   </div>
   <div class="wordmark">
     <p class="wm wrap" aria-hidden="true"><span>CRAB</span></p>
@@ -1546,7 +1540,7 @@ function bootPrivy() {
 }
 connectBtn.addEventListener('click', () => {
   if (LIVE.ok) { location.href = API + '/app'; return; }
-  if (!PRIVY_APP_ID) { showToast('Wallet connect is coming. Follow @crbidotio for updates.'); return; }
+  if (!PRIVY_APP_ID) { showToast('Wallet connect is coming soon.'); return; }
   if (W.address) { walletPop.hidden = !walletPop.hidden; return; }
   if (W.api && W.api.login) { W.api.login(); return; }
   W.wantLogin = true; renderWallet(true); bootPrivy();
