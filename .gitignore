@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+data/
+.DS_Store
+wallet/node_modules/
+deploy/*.zip
+.claude/
+web/wallet/
+github/
