@@ -65,6 +65,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .top-r { margin-left: auto; display: flex; align-items: center; gap: 10px; }
 .ca { font: 12px/1 var(--mono); border: 1px solid var(--line); height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 11px; color: var(--dim); background: var(--panel); white-space: nowrap; }
 .ca b { color: var(--gold); font-weight: 500; }
+button.ca { cursor: pointer; }
+button.ca:hover { background: var(--raise); }
+.cabar { border-bottom: 1px solid var(--soft); background: linear-gradient(90deg, rgba(245,189,0,.12), rgba(245,75,0,.08) 50%, rgba(110,69,255,.12)); }
+.cabar-in { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; min-height: 48px; padding-block: 7px; font: 12px/1.3 var(--mono); }
+.cabar .lab { color: var(--gold); font-weight: 700; letter-spacing: .16em; }
+.cabar code { font: 500 15px/1.3 var(--mono); color: var(--ink); word-break: break-all; user-select: all; }
+.cabar .cp { font: 500 12px/1 var(--mono); padding: 8px 12px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+.cabar .cp:hover { background: var(--raise); }
+.cabar a { color: var(--dim); }
+.cabar .note { margin-left: auto; color: var(--dim); }
+@media (max-width: 760px) { .cabar .note { margin-left: 0; width: 100%; } .cabar code { font-size: 13px; } }
 .ib { width: 36px; height: 36px; border: 1px solid var(--line); display: grid; place-items: center; background: var(--panel); transition: background .15s; }
 .ib svg { width: 15px; height: 15px; fill: var(--ink); }
 .ib:hover { background: var(--raise); }
@@ -89,7 +100,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 
 /* ---------- hero ---------- */
 .hero-stage {
-  position: relative; height: calc(100svh - 58px - 282px); min-height: 580px; max-height: 880px;
+  position: relative; height: calc(100svh - 58px - 48px - 282px); min-height: 580px; max-height: 880px;
   background:
     radial-gradient(60% 75% at 74% 42%, rgba(245, 75, 0, .30), transparent 62%),
     radial-gradient(42% 60% at 94% 86%, rgba(110, 69, 255, .42), transparent 64%),
@@ -365,13 +376,21 @@ footer { margin-top: clamp(76px, 10vw, 150px); border-top: 1px solid var(--line)
       <a href="#how">Docs</a>
     </nav>
     <div class="top-r">
-      <span class="ca">$CRBI · <b>launching on Meteora DBC</b></span>
+      <button class="ca" id="caChip" type="button" title="Copy the official $CRBI contract address">$CRBI CA · <b>8XA7…CRAB</b> ⧉</button>
       <a class="ib" href="https://x.com" target="_blank" rel="noopener" aria-label="Crab Intelligent on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       <a class="ib" href="https://github.com/CrabIntelligent" target="_blank" rel="noopener" aria-label="Crab Intelligent on GitHub"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
       <button class="btn btn-dark" id="connect" type="button">Connect</button>
     </div>
   </div>
 </header>
+
+<div class="cabar" id="ca"><div class="cabar-in wrap">
+  <span class="lab">OFFICIAL CA</span>
+  <code id="caAddr">8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB</code>
+  <button class="cp" id="caCopy" type="button">Copy</button>
+  <a href="https://solscan.io/token/8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB" target="_blank" rel="noopener">Solscan ↗</a>
+  <span class="note">$CRBI · launching soon on Meteora DBC · only trust this address</span>
+</div></div>
 
 <main id="top">
   <!-- ================= HERO ================= -->
@@ -1532,6 +1551,10 @@ connectBtn.addEventListener('click', () => {
 });
 // Warm the module cache as soon as someone shows intent, so the click opens the modal quickly.
 ['pointerenter', 'focus', 'touchstart'].forEach(ev => connectBtn.addEventListener(ev, () => { if (PRIVY_APP_ID && !LIVE.ok) loadPrivyModules().catch(() => {}); }, { once: true, passive: true }));
+const CA = '8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB';
+const copyCA = () => navigator.clipboard.writeText(CA).then(() => showToast('Official $CRBI CA copied.'), () => showToast(CA));
+$('#caCopy').addEventListener('click', copyCA);
+$('#caChip').addEventListener('click', copyCA);
 $('#wpCopy').addEventListener('click', () => {
   navigator.clipboard.writeText(W.address).then(() => showToast('Address copied.'), () => showToast(W.address));
 });

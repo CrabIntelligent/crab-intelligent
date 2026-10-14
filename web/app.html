@@ -117,6 +117,10 @@ details.out pre { max-height: 320px; overflow: auto; white-space: pre-wrap; over
 .deliv a { font: 13px var(--mono); }
 .deliv .files { display: flex; flex-wrap: wrap; gap: 8px 16px; }
 .sig { font: 11px/1.5 var(--mono); color: var(--faint); overflow-wrap: anywhere; margin-top: 8px; }
+.castrip { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding-block: 10px; font: 13px/1.3 var(--mono); border-bottom: 1px solid rgba(242,237,228,.12); }
+.castrip b { color: #f5bd00; letter-spacing: .14em; }
+.castrip code { font: 500 14px var(--mono); word-break: break-all; user-select: all; }
+.castrip a { color: inherit; opacity: .7; }
 .err-line { color: var(--bad); font: 13px var(--mono); margin-top: 8px; }
 </style>
 </head>
@@ -137,6 +141,7 @@ details.out pre { max-height: 320px; overflow: auto; white-space: pre-wrap; over
   </div>
 </header>
 
+<div class="wrap castrip"><b>OFFICIAL CA</b> <code id="caAddr">8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB</code> <button class="btn btn-sm" id="caCopy" type="button">Copy</button> <a href="https://solscan.io/token/8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB" target="_blank" rel="noopener">Solscan ↗</a></div>
 <div class="wrap strip" id="strip"><span class="down">connecting to the dispatcher…</span></div>
 
 <main class="wrap">
@@ -227,8 +232,8 @@ function renderAuth() {
   $('#addr').hidden = !on; $('#signout').hidden = !on;
   $('#connect').hidden = on; $('#devlogin').hidden = on || !(cfg && cfg.dev_mode);
   if (on) $('#addr').innerHTML = `wallet <b>${esc(short(session.pubkey))}</b>`;
-  $('#send').disabled = !on;
-  $('#sendnote').textContent = on ? 'Free during the devnet preview.' : 'Connect a wallet to order.';
+  $('#send').disabled = !on || !!(cfg && cfg.paused);
+  $('#sendnote').textContent = cfg && cfg.paused ? 'New orders are paused for the $CRBI launch.' : on ? 'Free during the devnet preview.' : 'Connect a wallet to order.';
 }
 
 /* ---------- order form ---------- */
@@ -257,7 +262,7 @@ $('#form').addEventListener('submit', async e => {
     say('Sent. The first step is waiting for a burrow.', 'ok');
     loadJobs();
   } catch (err) { say(err.message, 'err'); }
-  finally { $('#send').disabled = !session; }
+  finally { $('#send').disabled = !session || !!(cfg && cfg.paused); }
 });
 
 /* ---------- jobs ---------- */
@@ -333,6 +338,7 @@ async function loadStats() {
   }
 }
 
+$('#caCopy').addEventListener('click', () => navigator.clipboard.writeText('8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB').then(() => { $('#caCopy').textContent = 'Copied'; setTimeout(() => { $('#caCopy').textContent = 'Copy'; }, 1600); }, () => {}));
 $('#connect').addEventListener('click', connect);
 $('#devlogin').addEventListener('click', devLogin);
 $('#signout').addEventListener('click', signOut);
@@ -341,6 +347,7 @@ $('#signout').addEventListener('click', signOut);
   try { cfg = await api('/api/config'); }
   catch (e) { $('#strip').innerHTML = '<span class="down">dispatcher unreachable</span>'; return; }
   renderTypes(); renderAuth(); loadStats(); loadJobs();
+  if (cfg.paused) say('New orders are paused for the $CRBI launch. Signed answers, proofs and job pages stay online.', 'err');
   setInterval(loadStats, 5000);
   setInterval(loadJobs, 3000);
 })();
