@@ -5,6 +5,7 @@ from contextlib import asynccontextmanager
 from typing import Any, Dict, List, Optional
 
 from fastapi import Depends, FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 
@@ -22,6 +23,14 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(title="Crab Intelligent", version="0.1.0", lifespan=lifespan)
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://crbi.io", "https://www.crbi.io"],
+    allow_methods=["GET"],
+    allow_headers=[],
+)
 
 
 @app.exception_handler(ApiError)
