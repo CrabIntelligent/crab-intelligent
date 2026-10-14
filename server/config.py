@@ -41,6 +41,9 @@ WEB_DIR = ROOT / "web"
 
 # Dev mode allows one-click sign-in without a wallet. Turn it off before going public.
 DEV_MODE = _bool("CRAB_DEV_MODE", True)
+
+# Pause new orders (for example during the token launch). Reads, proofs and oracle checks keep working.
+PAUSED = _bool("CRAB_PAUSED", False)
 PUBLIC_URL = os.environ.get("CRAB_PUBLIC_URL", "http://localhost:8000").rstrip("/")
 
 # Worker wallets allowed to open a burrow. Empty means any wallet may run a worker.

@@ -121,6 +121,7 @@ class OracleVerifyIn(BaseModel):
 def get_config() -> Dict[str, Any]:
     return {
         "dev_mode": config.DEV_MODE,
+        "paused": config.PAUSED,
         "strict_cross_family": config.STRICT_CROSS_FAMILY,
         "max_brief_chars": config.MAX_BRIEF_CHARS,
         "job_types": planner.catalogue(),
@@ -196,6 +197,8 @@ def me(session: Dict[str, Any] = Depends(any_session)) -> Dict[str, Any]:
 
 @app.post("/api/jobs")
 def create_job(body: JobIn, session: Dict[str, Any] = Depends(customer)) -> Dict[str, Any]:
+    if config.PAUSED:
+        raise ApiError("New orders are paused for the $CRBI launch. They reopen soon.", 503)
     return engine.create_job(session["pubkey"], body.type, body.brief, body.public)
 
 
