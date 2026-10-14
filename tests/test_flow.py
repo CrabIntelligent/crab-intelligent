@@ -166,3 +166,15 @@ def test_permissions_and_limits(c):
     assert c.post("/api/jobs", json={"type": "report", "brief": "  "}, headers=alice).status_code == 400
     assert c.post("/api/jobs", json={"type": "video", "brief": "A clip"}, headers=alice).status_code == 400
     assert c.post("/api/jobs", json={"type": "report", "brief": "x"}).status_code == 401
+
+
+def test_paused_network_refuses_new_orders(c, monkeypatch):
+    from server import config
+    h = customer(c)
+    monkeypatch.setattr(config, "PAUSED", True)
+    assert c.get("/api/config").json()["paused"] is True
+    r = c.post("/api/jobs", json={"type": "oracle", "brief": "Is the network paused?"}, headers=h)
+    assert r.status_code == 503
+    assert c.get("/api/stats").status_code == 200
+    monkeypatch.setattr(config, "PAUSED", False)
+    assert c.post("/api/jobs", json={"type": "oracle", "brief": "Is it open again?"}, headers=h).status_code == 200
