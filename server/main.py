@@ -207,7 +207,7 @@ def me(session: Dict[str, Any] = Depends(any_session)) -> Dict[str, Any]:
 @app.post("/api/jobs")
 def create_job(body: JobIn, session: Dict[str, Any] = Depends(customer)) -> Dict[str, Any]:
     if config.PAUSED:
-        raise ApiError("New orders are paused for the $CRBI launch. They reopen soon.", 503)
+        raise ApiError("New orders are paused for the $CRAB launch. They reopen soon.", 503)
     return engine.create_job(session["pubkey"], body.type, body.brief, body.public)
 
 
