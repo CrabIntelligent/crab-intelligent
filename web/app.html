@@ -141,7 +141,7 @@ details.out pre { max-height: 320px; overflow: auto; white-space: pre-wrap; over
   </div>
 </header>
 
-<div class="wrap castrip"><b>OFFICIAL CA</b> <code id="caAddr">8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB</code> <button class="btn btn-sm" id="caCopy" type="button">Copy</button> <a href="https://solscan.io/token/8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB" target="_blank" rel="noopener">Solscan ↗</a></div>
+<div class="wrap castrip"><b>OFFICIAL CA</b> <code id="caAddr">CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk</code> <button class="btn btn-sm" id="caCopy" type="button">Copy</button> <a href="https://solscan.io/token/CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk" target="_blank" rel="noopener">Solscan ↗</a></div>
 <div class="wrap strip" id="strip"><span class="down">connecting to the dispatcher…</span></div>
 
 <main class="wrap">
@@ -233,7 +233,7 @@ function renderAuth() {
   $('#connect').hidden = on; $('#devlogin').hidden = on || !(cfg && cfg.dev_mode);
   if (on) $('#addr').innerHTML = `wallet <b>${esc(short(session.pubkey))}</b>`;
   $('#send').disabled = !on || !!(cfg && cfg.paused);
-  $('#sendnote').textContent = cfg && cfg.paused ? 'New orders are paused for the $CRBI launch.' : on ? 'Free during the devnet preview.' : 'Connect a wallet to order.';
+  $('#sendnote').textContent = cfg && cfg.paused ? 'New orders are paused for the $CRAB launch.' : on ? 'Free during the devnet preview.' : 'Connect a wallet to order.';
 }
 
 /* ---------- order form ---------- */
@@ -338,7 +338,7 @@ async function loadStats() {
   }
 }
 
-$('#caCopy').addEventListener('click', () => navigator.clipboard.writeText('8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB').then(() => { $('#caCopy').textContent = 'Copied'; setTimeout(() => { $('#caCopy').textContent = 'Copy'; }, 1600); }, () => {}));
+$('#caCopy').addEventListener('click', () => navigator.clipboard.writeText('CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk').then(() => { $('#caCopy').textContent = 'Copied'; setTimeout(() => { $('#caCopy').textContent = 'Copy'; }, 1600); }, () => {}));
 $('#connect').addEventListener('click', connect);
 $('#devlogin').addEventListener('click', devLogin);
 $('#signout').addEventListener('click', signOut);
@@ -347,7 +347,7 @@ $('#signout').addEventListener('click', signOut);
   try { cfg = await api('/api/config'); }
   catch (e) { $('#strip').innerHTML = '<span class="down">dispatcher unreachable</span>'; return; }
   renderTypes(); renderAuth(); loadStats(); loadJobs();
-  if (cfg.paused) say('New orders are paused for the $CRBI launch. Signed answers, proofs and job pages stay online.', 'err');
+  if (cfg.paused) say('New orders are paused for the $CRAB launch. Signed answers, proofs and job pages stay online.', 'err');
   setInterval(loadStats, 5000);
   setInterval(loadJobs, 3000);
 })();

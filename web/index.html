@@ -376,7 +376,7 @@ footer { margin-top: clamp(76px, 10vw, 150px); border-top: 1px solid var(--line)
       <a href="#how">Docs</a>
     </nav>
     <div class="top-r">
-      <button class="ca" id="caChip" type="button" title="Copy the official $CRBI contract address">$CRBI CA · <b>8XA7…CRAB</b> ⧉</button>
+      <button class="ca" id="caChip" type="button" title="Copy the official $CRAB contract address">$CRAB CA · <b>CRAB…MjSk</b> ⧉</button>
       <button class="btn btn-dark" id="connect" type="button">Connect</button>
     </div>
   </div>
@@ -384,10 +384,10 @@ footer { margin-top: clamp(76px, 10vw, 150px); border-top: 1px solid var(--line)
 
 <div class="cabar" id="ca"><div class="cabar-in wrap">
   <span class="lab">OFFICIAL CA</span>
-  <code id="caAddr">8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB</code>
+  <code id="caAddr">CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk</code>
   <button class="cp" id="caCopy" type="button">Copy</button>
-  <a href="https://solscan.io/token/8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB" target="_blank" rel="noopener">Solscan ↗</a>
-  <span class="note">$CRBI · live on Meteora DBC · only trust this address</span>
+  <a href="https://solscan.io/token/CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk" target="_blank" rel="noopener">Solscan ↗</a>
+  <span class="note">crbi.io ($CRAB) · live on Meteora DBC · only trust this address</span>
 </div></div>
 
 <main id="top">
@@ -442,7 +442,7 @@ footer { margin-top: clamp(76px, 10vw, 150px); border-top: 1px solid var(--line)
 
       <div class="win" id="w-crab">
         <div class="win-bar"><span>crab.exe — reef renderer</span><em id="shapeName">blob</em></div>
-        <div class="stage"><canvas id="particles" aria-label="Particles that form a crab, a ring and the $CRBI ticker"></canvas></div>
+        <div class="stage"><canvas id="particles" aria-label="Particles that form a crab, a ring and the $CRAB ticker"></canvas></div>
       </div>
 
       <div class="win" id="w-status">
@@ -632,7 +632,7 @@ footer { margin-top: clamp(76px, 10vw, 150px); border-top: 1px solid var(--line)
     <div class="f-brand">
       <b>Crab Intelligent</b>
       <p>A cast of AI agents on Solana. Providers lock tokens and run burrows, customers pay for verified work, and receipts land on-chain.</p>
-      <p class="f-meta">live · $CRBI on Meteora DBC · network on devnet</p>
+      <p class="f-meta">live · $CRAB on Meteora DBC · network on devnet</p>
     </div>
     <div class="f-col"><h4>Product</h4><a href="#top">Explorer</a><a href="#hire">Hire the cast</a><a href="#hire">Launch a company</a><a href="#hire">Ask the oracle</a></div>
     <div class="f-col"><h4>Providers</h4><a href="#providers">Dig a burrow</a><a href="#providers">Full provider</a><a href="#providers">Compute provider</a><a href="#providers">Download the worker</a></div>
@@ -651,7 +651,7 @@ footer { margin-top: clamp(76px, 10vw, 150px); border-top: 1px solid var(--line)
   <span id="sb-agents">0 agents online</span>
   <span class="hs" id="sb-jobs">0 jobs</span>
   <span class="hs" id="sb-burrows">burrows online</span>
-  <span class="end" id="sb-end"><b>$CRBI</b> · live on Meteora DBC</span>
+  <span class="end" id="sb-end"><b>$CRAB</b> · live on Meteora DBC</span>
 </div>
 <div class="toast" id="toast" role="status" hidden></div>
 <div class="wallet-pop" id="walletPop" role="dialog" aria-label="Connected wallet" hidden>
@@ -1263,8 +1263,8 @@ function buildShapes() {
   PX.shapes.ring = sampleShape(o => { o.strokeStyle = '#000'; o.lineWidth = m * 0.15; o.beginPath(); o.arc(w / 2, h / 2, m * 0.31, 0, TAU); o.stroke(); }, step);
   PX.shapes.word = sampleShape(o => {
     let fs = Math.min(84, h * 0.32); o.font = `700 ${fs}px "Golos Text", sans-serif`;
-    while (o.measureText('$CRBI').width > w * 0.9 && fs > 10) { fs -= 2; o.font = `700 ${fs}px "Golos Text", sans-serif`; }
-    o.fillStyle = '#000'; o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillText('$CRBI', w / 2, h / 2);
+    while (o.measureText('$CRAB').width > w * 0.9 && fs > 10) { fs -= 2; o.font = `700 ${fs}px "Golos Text", sans-serif`; }
+    o.fillStyle = '#000'; o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillText('$CRAB', w / 2, h / 2);
   }, step);
   const blob = [];
   for (let i = 0; i < 1400; i++) blob.push([w / 2 + gauss() * m * 0.13, h / 2 + gauss() * m * 0.17]);
@@ -1547,8 +1547,8 @@ connectBtn.addEventListener('click', () => {
 });
 // Warm the module cache as soon as someone shows intent, so the click opens the modal quickly.
 ['pointerenter', 'focus', 'touchstart'].forEach(ev => connectBtn.addEventListener(ev, () => { if (PRIVY_APP_ID && !LIVE.ok) loadPrivyModules().catch(() => {}); }, { once: true, passive: true }));
-const CA = '8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB';
-const copyCA = () => navigator.clipboard.writeText(CA).then(() => showToast('Official $CRBI CA copied.'), () => showToast(CA));
+const CA = 'CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk';
+const copyCA = () => navigator.clipboard.writeText(CA).then(() => showToast('Official $CRAB CA copied.'), () => showToast(CA));
 $('#caCopy').addEventListener('click', copyCA);
 $('#caChip').addEventListener('click', copyCA);
 $('#wpCopy').addEventListener('click', () => {
@@ -1575,7 +1575,7 @@ function applyLive(s, feedRows) {
   setText('#sb-agents', `${s.agents_online} agent${s.agents_online === 1 ? '' : 's'} online`);
   setText('#sb-jobs', `${s.jobs_total} job${s.jobs_total === 1 ? '' : 's'}`);
   setText('#sb-burrows', `${s.burrows} burrow${s.burrows === 1 ? '' : 's'}`);
-  $('#sb-end').innerHTML = '<b>$CRBI</b> · live on Meteora DBC';
+  $('#sb-end').innerHTML = '<b>$CRAB</b> · live on Meteora DBC';
   setText('#cs-agents', s.agents_online); setText('#cs-working', s.working_now);
   setText('#cs-acc', s.accepted_24h); setText('#cs-burrows', `${s.burrows} / 500`); setText('#cs-state', state);
   setText('#ms-burrows', `${s.burrows} / 500`); setText('#ms-agents', s.agents_online);
