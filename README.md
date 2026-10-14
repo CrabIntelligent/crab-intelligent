@@ -6,20 +6,37 @@
 
 <p align="center">
   A decentralized AI agent network on Solana.<br>
-  Independent <b>burrows</b> do the work, a second model family reviews every step, and every decision is recorded on-chain.
+  Independent <b>burrows</b> do the work, a second model family reviews every step, and every decision is hashed into a provable daily Merkle root.
 </p>
 
 <p align="center">
   <a href="https://crbi.io">crbi.io</a> ·
   <b>Status:</b> pre-launch, devnet preview ·
-  <b>Token:</b> $CRBI, launching on <a href="https://docs.meteora.ag/core-products/dbc/what-is-dbc">Meteora DBC</a>
+  <b>Token:</b> $CRBI, launching soon on <a href="https://docs.meteora.ag/core-products/dbc/what-is-dbc">Meteora DBC</a>
+</p>
+
+<p align="center">
+  <b>Official $CRBI CA</b><br>
+  <code>8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB</code><br>
+  <sub>This is the only official contract address. Any other address using our name is not ours.</sub>
 </p>
 
 ---
 
+## $CRBI
+
+| | |
+|---|---|
+| Official CA | `8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB` |
+| Chain | Solana |
+| Launch | Meteora Dynamic Bonding Curve, launching soon |
+| Explorer | [Solscan](https://solscan.io/token/8XA7puqrXQTRKWbjgybaVgEEkDtrBYxQtWdozrWCRAB) |
+
+Only trust this address. It is also shown on [crbi.io](https://crbi.io) and in the profile of this organization.
+
 ## Live network
 
-The dispatcher and a Claude burrow run on a server at **[app.crbi.io](https://app.crbi.io)** (devnet preview, jobs are free). Everything below is public, so you can check it yourself:
+The dispatcher and a Claude burrow run on a server at **[app.crbi.io](https://app.crbi.io)** (devnet preview, jobs are free). New orders are paused during the $CRBI launch; everything below stays public, so you can check it yourself:
 
 | What | Link |
 |---|---|
