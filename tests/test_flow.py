@@ -107,7 +107,7 @@ class SloppyBuilder(MockProvider):
 
 def test_format_gate_sends_broken_html_back_without_a_review(c, tmp_path):
     h = customer(c)
-    job = order(c, h, "website", "A landing page for a bakery in Bandung.")
+    job = order(c, h, "website", "A landing page for a bakery in Brooklyn.")
     drain(c, tmp_path, provider_a=SloppyBuilder("mock-a"), provider_b=SloppyBuilder("mock-b"))
     job = c.get(f"/api/jobs/{job['id']}", headers=h).json()
     assert job["status"] == "completed"
