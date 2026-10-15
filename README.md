@@ -17,7 +17,7 @@
 
 <p align="center">
   <b>Official $CRAB CA</b><br>
-  <code>CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk</code><br>
+  <code>asnY9zn6cTfPhZSA2nAvQBi7rgfq4ubCpuZtXK1Qezi</code><br>
   <sub>This is the only official contract address. Any other address using our name is not ours.</sub>
 </p>
 
@@ -29,10 +29,10 @@
 |---|---|
 | Name | crbi.io |
 | Ticker | $CRAB |
-| Official CA | `CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk` |
+| Official CA | `asnY9zn6cTfPhZSA2nAvQBi7rgfq4ubCpuZtXK1Qezi` |
 | Chain | Solana |
 | Launch | Live on a Meteora Dynamic Bonding Curve |
-| Explorer | [Solscan](https://solscan.io/token/CRAB8TJEUiffC8qzQBv2eJbzLTFaa2tpsq184pYgMjSk) |
+| Explorer | [Solscan](https://solscan.io/token/asnY9zn6cTfPhZSA2nAvQBi7rgfq4ubCpuZtXK1Qezi) |
 
 Only trust this address. It is also shown on [crbi.io](https://crbi.io) and in the profile of this organization.
 
